@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/recherche-macrogol-vero/","tags":["gardenEntry"]}
+{"dg-publish":true,"permalink":"/recherche-macrogol-vero/"}
 ---
 
 # Recherche-Zusammenfassung: Macrogol bei chronischer Magendilatation & IBD
