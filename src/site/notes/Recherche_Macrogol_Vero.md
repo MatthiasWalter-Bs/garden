@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/recherche-macrogol-vero/"}
 ---
 
-# Zusammenfassung: Macrogol bei chronischer Magendilatation & IBD
+# Recherche-Zusammenfassung: Macrogol bei chronischer Magendilatation & IBD
 
 **Patient:** Vero (Pferd)
 **Diagnosen:** Chronisch vergrößerter Magen · Chronische Darmentzündung (IBD)
@@ -62,22 +62,59 @@ Auch bei gelegentlicher Gabe sind folgende Punkte zu beachten — insbesondere w
 | **Verschlechterung der IBD** | Osmotische Belastung des entzündeten Darms, auch bei einmaliger Gabe |
 | **Symptommaskierung** | Könnte die Frage verdecken, warum Verstopfung trotz Magendilatation auftritt |
 
-## 7. Empfohlene Standardtherapie
+## 7. Praxisempfehlung aus Cavallo-Artikel
 
-Basierend auf der verfügbaren Literatur wird bei chronischer Magendilatation mit gleichzeitiger IBD empfohlen:
+Ein Fallbericht aus der Zeitschrift *Cavallo* beschreibt folgendes Therapieschema nach einem Klinikaufenthalt wegen Magendilatation:
 
-1. **Angepasstes Fütterungsregime** — Kleine, häufige Portionen; leicht verdauliches Futter; Omega-3-Fettsäuren zur Entzündungshemmung
-2. **Prokinetika** — z. B. Metoclopramid zur aktiven Förderung der Magenentleerung (Langzeiteinsatz belegt)
-3. **Magenschutz** — z. B. Omeprazol bei Bedarf
-4. **IBD-Therapie** — Entzündungskontrolle (Kortikosteroide, ggf. diätetische Anpassung) in Abstimmung mit der Magen-Therapie
+### Medikamente
 
-## 8. Fragen für das Tierarztgespräch
+- **Metoclopramid (MCP)** zur Unterstützung der Magen-Darm-Funktion
+- **Omeprazol** als mehrmonatige Therapie zur Regeneration der Magenschleimhaut
+
+### Fütterungsprotokoll (erste 3 Monate)
+
+- **Mindestens 5× täglich** füttern
+- **Weichfutter:** Mash und Grünmehl-Pellets-Wasser-Gemisch (ca. 1 kg Pellets auf 10 Liter Wasser)
+- Ziel: Magenentlastung und Unterstützung der Darmtätigkeit
+
+### Kontrollintervalle
+
+- **Nach 2 Monaten:** Kontrolluntersuchung in der Klinik
+- **Nach 6 Monaten:** Folgekontrolle
+- **Danach:** Jährliche Kontrolle
+
+### Einordnung für Vero
+
+Dieses Schema deckt sich mit der Studienlage und passt gut zu Veros Doppeldiagnose. Die Kombination MCP + Omeprazol + Weichfutter adressiert sowohl die Magendilatation (MCP fördert Entleerung, Omeprazol schützt Schleimhaut) als auch die IBD (leicht verdauliches Weichfutter schont den entzündeten Darm). Bei Veros IBD sollte mit dem Tierarzt besprochen werden, ob die Kontrollintervalle anfangs enger gesetzt werden (z. B. inkl. Blutbild zur Entzündungskontrolle).
+
+## 8. Omeprazol: AbPrazole Plus
+
+Es sind 100 Sachets **AbPrazole Plus** vorhanden (vom im Januar 2026 verstorbenen Pferd). Vor der Verwendung für Vero unbedingt klären:
+
+- **Haltbarkeitsdatum prüfen** — Omeprazol verliert bei abgelaufenem MHD an Wirksamkeit
+- **Dosierung mit Tierarzt abstimmen** — Die Dosis hängt von Veros Körpergewicht und der Indikation ab (therapeutisch vs. prophylaktisch)
+- **Dauer festlegen** — Der Cavallo-Artikel empfiehlt eine mehrmonatige Therapie; bei gleichzeitiger IBD sollte der Tierarzt die optimale Dauer bestimmen
+- **Wechselwirkung mit IBD-Therapie beachten** — Omeprazol verändert den Magen-pH, was die nachgelagerte Verdauung beeinflusst. Bei entzündeter Darmschleimhaut ist das relevant
+
+## 9. Empfohlene Gesamttherapie
+
+Basierend auf Literatur und Cavallo-Praxisempfehlung wird bei Veros Doppeldiagnose (Magendilatation + IBD) empfohlen:
+
+1. **Fütterungsregime** — Mind. 5× täglich, Weichfutter (Mash, Grünmehl-Pellets-Wasser-Gemisch); leicht verdaulich, Omega-3-Fettsäuren zur Entzündungshemmung
+2. **Metoclopramid (MCP)** — Dauermedikation zur Förderung der Magenentleerung (Langzeiteinsatz über Monate/Jahre belegt)
+3. **Omeprazol (AbPrazole Plus)** — Mehrmonatige Therapie zur Regeneration der Magenschleimhaut (Dosierung und Dauer tierärztlich festlegen)
+4. **IBD-Therapie** — Entzündungskontrolle (Kortikosteroide, diätetische Anpassung) in Abstimmung mit Magen-Therapie
+5. **Macrogol** — Nur bei akuter Verstopfung als Bedarfsmedikation; Einsatz bei IBD kritisch hinterfragen
+6. **Kontrollen** — Nach 2 Monaten, nach 6 Monaten, dann jährlich; bei IBD ggf. engmaschiger (Blutbild)
+
+## 10. Fragen für das Tierarztgespräch
 
 1. Ist Macrogol bei gleichzeitiger IBD auch als Bedarfsmedikation unbedenklich, oder gibt es schonendere Alternativen bei Verstopfung?
-2. Wie häufig treten bei Vero Verstopfungsepisoden auf — und was könnte die Ursache sein (Futter, Motilität, IBD)?
-3. Wäre Metoclopramid als Dauermedikation sinnvoll, um sowohl die Magenentleerung als auch die Darmpassage zu verbessern und Verstopfungen vorzubeugen?
+2. Können wir die vorhandenen AbPrazole-Plus-Sachets für Vero verwenden? Wenn ja: welche Dosierung und Dauer?
+3. Wäre Metoclopramid als Dauermedikation sinnvoll, um Magenentleerung und Darmpassage zu verbessern und Verstopfungen vorzubeugen?
 4. Wie werden IBD-Therapie und Magendilatation-Therapie aufeinander abgestimmt?
-5. Wie wird der Therapieerfolg regelmäßig kontrolliert (Gastroskopie, Ultraschall, Blutbild)?
+5. Ist das 5×-täglich-Weichfutter-Protokoll aus dem Cavallo-Artikel für Vero geeignet, und wie lange sollte es beibehalten werden?
+6. Sollten die Kontrollintervalle wegen der IBD enger gesetzt werden als im Standardschema (2 Monate → 6 Monate → jährlich)?
 
 ---
 
@@ -100,6 +137,7 @@ Basierend auf der verfügbaren Literatur wird bei chronischer Magendilatation mi
 | [13] | Effects of Mosapride on Motility | pmc.ncbi.nlm.nih.gov |
 | [14] | Gastrointestinale Hypomotilität | vetpharm.uzh.ch |
 | [15] | Macrogol Mepha Pulver | compendium.ch |
+| [16] | Cavallo – Fallbericht Magendilatation (Therapieschema) | cavallo.de |
 
 ---
 
