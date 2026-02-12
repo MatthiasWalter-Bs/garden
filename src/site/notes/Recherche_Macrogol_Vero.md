@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/recherche-macrogol-vero/"}
 ---
 
-# Recherche-Zusammenfassung: Macrogol bei chronischer Magendilatation & IBD
+# Zusammenfassung: Macrogol bei chronischer Magendilatation & IBD
 
 **Patient:** Vero (Pferd)
 **Diagnosen:** Chronisch vergrößerter Magen · Chronische Darmentzündung (IBD)
