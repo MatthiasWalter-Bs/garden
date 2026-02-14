@@ -1,0 +1,130 @@
+{% if protected %}
+<style>
+  .protected-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: var(--background-primary, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .protected-form {
+    text-align: center;
+    max-width: 360px;
+    padding: 40px;
+  }
+  .protected-form h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.4rem;
+  }
+  .protected-form p {
+    color: var(--text-muted, #6b6b76);
+    margin: 0 0 24px 0;
+    font-size: 0.95rem;
+  }
+  .protected-form input[type="password"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--background-modifier-border, #e5e5e7);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--background-secondary, #f7f7f8);
+    color: var(--text-normal, #1a1a1e);
+    outline: none;
+    box-sizing: border-box;
+  }
+  .protected-form input[type="password"]:focus {
+    border-color: var(--text-accent, #2563eb);
+  }
+  .protected-form button {
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px;
+    background: var(--text-accent, #2563eb);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .protected-form button:hover {
+    opacity: 0.9;
+  }
+  .protected-error {
+    color: #dc2626;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    display: none;
+  }
+  .content-hidden {
+    display: none !important;
+  }
+</style>
+
+<script>
+(function() {
+  var HASH = "{{ password | sha256 }}";
+  var PAGE_KEY = "protected_" + location.pathname;
+
+  // Check sessionStorage
+  if (sessionStorage.getItem(PAGE_KEY) === HASH) {
+    return; // Already unlocked this session
+  }
+
+  // Hide content
+  var content = document.currentScript.closest('.content');
+  if (content) {
+    // Hide everything after this script's parent container
+    var nodes = content.querySelectorAll(':scope > :not(header):not(style):not(script)');
+    nodes.forEach(function(n) { n.classList.add('content-hidden'); });
+  }
+
+  // Build overlay
+  var overlay = document.createElement('div');
+  overlay.className = 'protected-overlay';
+  overlay.innerHTML =
+    '<div class="protected-form">' +
+      '<h2>Protected Page</h2>' +
+      '<p>Enter the password to view this content.</p>' +
+      '<form id="pw-form">' +
+        '<input type="password" id="pw-input" placeholder="Password" autocomplete="off">' +
+        '<button type="submit">Unlock</button>' +
+        '<div class="protected-error" id="pw-error">Incorrect password</div>' +
+      '</form>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  // Focus input after render
+  setTimeout(function() {
+    document.getElementById('pw-input').focus();
+  }, 50);
+
+  document.getElementById('pw-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var pw = document.getElementById('pw-input').value;
+    var encoded = new TextEncoder().encode(pw);
+    var hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+    var hashArray = Array.from(new Uint8Array(hashBuffer));
+    var hashHex = hashArray.map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+
+    if (hashHex === HASH) {
+      sessionStorage.setItem(PAGE_KEY, HASH);
+      overlay.remove();
+      if (content) {
+        content.querySelectorAll('.content-hidden').forEach(function(n) {
+          n.classList.remove('content-hidden');
+        });
+      }
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  });
+})();
+</script>
+{% endif %}

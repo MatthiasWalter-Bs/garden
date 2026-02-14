@@ -1,13 +1,262 @@
+/* ===================================================
+   sightful.garden — Light Theme
+   Overrides style.scss + digital-garden-base.scss
+   =================================================== */
+
+/* --- Design Tokens --- */
+:root {
+  --background-primary: #ffffff;
+  --background-secondary: #f7f7f8;
+  --background-primary-alt: #f0f0f2;
+  --background-secondary-alt: #ededf0;
+  --background-modifier-border: #e5e5e7;
+
+  --text-normal: #1a1a1e;
+  --text-muted: #6b6b76;
+  --text-faint: #9b9ba5;
+  --text-accent: #2563eb;
+  --text-selection: rgba(37, 99, 235, 0.12);
+
+  --interactive-normal: #ffffff;
+  --interactive-hover: #f0f0f2;
+  --interactive-accent: #2563eb;
+  --interactive-accent-hover: #1d4ed8;
+
+  --callout-blend-mode: normal;
+  --callout-border-width: 0px;
+  --callout-radius: 8px;
+  --callout-padding: 12px 12px 12px 24px;
+
+  --font-default: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --- Body-level Obsidian overrides --- */
 body {
-    /***
-      ADD YOUR CUSTOM STYLING HERE. (INSIDE THE body {...} section.)
-      IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
-   ***/
-    //  background-color: white;
-    //  .content {
-    //   font-size: 14px;
-    //  }
-    //  h1 {
-    //   color: black;
-    //  }
+  --background-primary: #ffffff;
+  --background-secondary: #f7f7f8;
+  --background-primary-alt: #f0f0f2;
+  --background-secondary-alt: #ededf0;
+  --background-modifier-border: #e5e5e7;
+
+  --text-normal: #1a1a1e;
+  --text-muted: #6b6b76;
+  --text-faint: #9b9ba5;
+  --text-accent: #2563eb;
+  --text-selection: rgba(37, 99, 235, 0.12);
+
+  --interactive-normal: #ffffff;
+  --interactive-hover: #f0f0f2;
+  --interactive-accent: #2563eb;
+  --interactive-accent-hover: #1d4ed8;
+
+  --graph-main: #2563eb;
+  --graph-muted: #9b9ba5;
+
+  --callout-blend-mode: normal;
+
+  --font-default: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  font-family: var(--font-default);
+  background: var(--background-primary);
+  color: var(--text-normal);
+}
+
+/* --- Heading styles: uniform dark, Space Grotesk --- */
+h1, h2, h3, h4, h5, h6 {
+  color: #111118;
+  font-family: 'Space Grotesk', var(--font-default);
+  font-weight: 600;
+}
+
+/* --- Theme class overrides --- */
+.theme-light {
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-family: var(--font-default);
+}
+
+/* --- Links --- */
+a {
+  color: var(--text-accent);
+}
+
+a:hover {
+  color: var(--interactive-accent-hover);
+}
+
+.internal-link {
+  color: var(--text-accent);
+  text-decoration-color: rgba(37, 99, 235, 0.3);
+}
+
+/* --- Callouts: fix invisible-on-white issue --- */
+.callout {
+  mix-blend-mode: normal;
+  border-radius: var(--callout-radius);
+}
+
+/* --- Blockquotes --- */
+blockquote {
+  background: #f7f7f8;
+  border-left: 4px solid #e5e5e7;
+  color: var(--text-normal);
+}
+
+blockquote:before {
+  color: #d1d1d6;
+}
+
+/* --- Inline code --- */
+p > code {
+  color: #d63384;
+  background-color: #f7f7f8;
+}
+
+/* --- Code blocks --- */
+pre {
+  background-color: #f7f7f8 !important;
+  border: 1px solid #e5e5e7;
+  border-radius: 8px;
+}
+
+code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* --- Filetree sidebar --- */
+.filetree-sidebar {
+  h1 {
+    color: #111118;
+    font-family: 'Space Grotesk', var(--font-default);
+  }
+}
+
+/* --- Notelinks in filetree --- */
+.notelink {
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.notelink.active-note {
+  border-left-color: var(--text-accent);
+  background-color: rgba(37, 99, 235, 0.06);
+}
+
+/* --- Filelist depth lines --- */
+.filelist {
+  border-left-color: #e5e5e7;
+}
+
+/* --- Search button --- */
+.search-button {
+  background-color: var(--background-primary);
+  border-color: #e5e5e7;
+  color: var(--text-muted);
+
+  .search-keys {
+    background-color: #f0f0f2;
+    color: var(--text-faint);
+  }
+}
+
+/* --- Search box --- */
+.search-box {
+  background-color: var(--background-primary);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+
+  input {
+    background-color: var(--background-secondary);
+    color: var(--text-normal);
+    border-color: #e5e5e7;
+
+    &:focus {
+      border-color: var(--text-accent);
+    }
+  }
+}
+
+.searchresult {
+  background-color: var(--background-secondary);
+
+  &:hover {
+    background-color: #f0f0f2;
+  }
+
+  &.active {
+    border-color: var(--text-accent);
+    background-color: rgba(37, 99, 235, 0.06);
+  }
+}
+
+.result-tags .tag {
+  background-color: #f0f0f2;
+  color: var(--text-muted);
+}
+
+/* --- Graph controls --- */
+#graph-controls {
+  background-color: var(--background-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: var(--text-muted);
+}
+
+#link-graph {
+  background-color: var(--background-secondary);
+}
+
+/* --- Sidebar border on medium screens --- */
+@media (max-width: 1400px) {
+  .sidebar {
+    border-top-color: #e5e5e7;
+  }
+}
+
+/* --- TOC tree lines --- */
+.toc-container {
+  ul, ol {
+    border-left-color: #e5e5e7;
+  }
+}
+
+/* --- Tags --- */
+.tag {
+  color: var(--text-accent);
+  background-color: rgba(37, 99, 235, 0.08);
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+.header-tags .tag {
+  font-size: 0.85rem;
+}
+
+/* --- Buttons --- */
+button {
+  border: 1px solid #e5e5e7;
+  color: var(--text-normal);
+  background-color: var(--background-primary);
+  padding: 5px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--interactive-hover);
+  }
+}
+
+/* --- Canvas hints --- */
+.canvas-hints kbd {
+  background: var(--background-secondary);
+  border-color: #e5e5e7;
+}
+
+/* --- Overlay --- */
+.search-container {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Selection --- */
+::selection {
+  background: rgba(37, 99, 235, 0.2);
 }
