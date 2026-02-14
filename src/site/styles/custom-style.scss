@@ -56,6 +56,9 @@ body {
 
   --font-default: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
+  --dg-filetree-width: 300px;
+  --dg-filetree-min-width: 300px;
+
   font-family: var(--font-default);
   background: var(--background-primary);
   color: var(--text-normal);
