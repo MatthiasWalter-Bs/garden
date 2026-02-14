@@ -67,10 +67,10 @@ body {
   color: var(--text-normal);
 }
 
-/* --- Heading styles: uniform dark, Space Grotesk --- */
+/* --- Heading styles --- */
 h1, h2, h3, h4, h5, h6 {
   color: #111118;
-  font-family: 'Space Grotesk', var(--font-default);
+  font-family: var(--font-default);
   font-weight: 600;
 }
 
@@ -169,6 +169,11 @@ code {
   border-left-color: #e5e5e7;
 }
 
+/* --- Hide navbar search (keep sidebar search) --- */
+.navbar .search-button {
+  display: none;
+}
+
 /* --- Search button --- */
 .search-button {
   background-color: var(--background-primary);
@@ -213,17 +218,6 @@ code {
 .result-tags .tag {
   background-color: #f0f0f2;
   color: var(--text-muted);
-}
-
-/* --- Graph controls --- */
-#graph-controls {
-  background-color: var(--background-primary);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  color: var(--text-muted);
-}
-
-#link-graph {
-  background-color: var(--background-secondary);
 }
 
 /* --- Sidebar border on medium screens --- */
@@ -306,6 +300,28 @@ tr:last-child td {
 
 tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* --- Content max-width for readability --- */
+.content {
+  max-width: 820px;
+}
+
+/* --- Right sidebar (TOC) cleanup --- */
+.sidebar {
+  border-left: 1px solid #e5e5e7;
+  background: var(--background-secondary);
+}
+
+/* --- Filetree sidebar title hover area --- */
+.filetree-sidebar .sidebar-name {
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
 }
 
 /* --- Selection --- */
