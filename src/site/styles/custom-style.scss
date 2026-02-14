@@ -144,7 +144,7 @@ code {
   color: #222222;
   font-family: 'Space Grotesk', var(--font-default);
   font-weight: 700;
-  text-align: left;
+  text-align: left !important; /* override inline style="text-align:center" */
 }
 
 /* --- Filetree sidebar --- */
@@ -160,9 +160,7 @@ code {
 
   .search-button {
     width: auto;
-    max-width: 160px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 10px 0;
   }
 }
 
@@ -174,6 +172,8 @@ code {
 
 /* --- Notelinks in filetree --- */
 .notelink {
+  margin-left: 0 !important;
+  padding-left: 0;
   transition: background-color 0.15s ease;
 
   &:hover {
