@@ -152,6 +152,13 @@ code {
 
 .filetree-wrapper {
   border-right: 1px solid #e5e5e7;
+  overflow: hidden;
+}
+
+/* --- Content padding --- */
+.content {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 /* --- Notelinks in filetree --- */
@@ -224,10 +231,10 @@ code {
   color: var(--text-muted);
 }
 
-/* --- Sidebar border on medium screens --- */
+/* --- Hide right sidebar when it collapses below content --- */
 @media (max-width: 1400px) {
   .sidebar {
-    border-top-color: #e5e5e7;
+    display: none !important;
   }
 }
 
