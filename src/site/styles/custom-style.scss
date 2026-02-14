@@ -129,12 +129,16 @@ code {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
+/* --- Site title (Space Grotesk everywhere it appears) --- */
+.filetree-sidebar h1,
+.navbar h1 {
+  color: #111118;
+  font-family: 'Space Grotesk', var(--font-default);
+}
+
 /* --- Filetree sidebar --- */
 .filetree-sidebar {
-  h1 {
-    color: #111118;
-    font-family: 'Space Grotesk', var(--font-default);
-  }
+  overflow: hidden;
 
   a.filename {
     color: var(--text-muted);
@@ -300,28 +304,6 @@ tr:last-child td {
 
 tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.02);
-}
-
-/* --- Content max-width for readability --- */
-.content {
-  max-width: 820px;
-}
-
-/* --- Right sidebar (TOC) cleanup --- */
-.sidebar {
-  border-left: 1px solid #e5e5e7;
-  background: var(--background-secondary);
-}
-
-/* --- Filetree sidebar title hover area --- */
-.filetree-sidebar .sidebar-name {
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: background-color 0.15s ease;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
-  }
 }
 
 /* --- Selection --- */
