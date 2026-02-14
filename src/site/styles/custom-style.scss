@@ -138,8 +138,6 @@ code {
 
 /* --- Filetree sidebar --- */
 .filetree-sidebar {
-  overflow: hidden;
-
   a.filename {
     color: var(--text-muted);
     transition: color 0.15s ease;
@@ -148,17 +146,17 @@ code {
       color: var(--text-normal);
     }
   }
+
+  /* Constrain search button within sidebar padding */
+  .search-button {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .filetree-wrapper {
   border-right: 1px solid #e5e5e7;
-  overflow: hidden;
-}
-
-/* --- Content padding --- */
-.content {
-  padding-left: 24px;
-  padding-right: 24px;
 }
 
 /* --- Notelinks in filetree --- */
