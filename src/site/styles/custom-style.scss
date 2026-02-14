@@ -144,6 +144,7 @@ code {
   color: #222222;
   font-family: 'Space Grotesk', var(--font-default);
   font-weight: 700;
+  text-align: left;
 }
 
 /* --- Filetree sidebar --- */
@@ -165,9 +166,10 @@ code {
   }
 }
 
-/* No sidebar border — clean like Obsidian Publish */
+/* No sidebar border — clip content to prevent bleed into main area */
 .filetree-wrapper {
   border-right: none;
+  overflow: hidden;
 }
 
 /* --- Notelinks in filetree --- */
