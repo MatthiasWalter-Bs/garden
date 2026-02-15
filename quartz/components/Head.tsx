@@ -86,6 +86,14 @@ export default (() => {
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
+        {/* Password protection: noindex for Google */}
+        {fileData.frontmatter?.password && (
+          <meta name="robots" content="noindex, nofollow" />
+        )}
+        {fileData.frontmatter?.password && (
+          <meta name="password" content={fileData.frontmatter.password.toString()} />
+        )}
+
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js
           .filter((resource) => resource.loadTime === "beforeDOMReady")
