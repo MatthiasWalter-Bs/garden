@@ -1,7 +1,8 @@
-# Fitness Log - Matthias
+# Fitness Log - Matthias (MASTER)
 
 ## Übersicht
 Tracking von Workouts, Gewichten und Fortschritten.
+**Quelle:** Diese Datei wird täglich automatisch ins Digital Garden gepusht.
 
 ---
 
@@ -71,3 +72,4 @@ Tracking von Workouts, Gewichten und Fortschritten.
 
 - TRE (Trauma Release Exercises) als regelmässiger Cooldown
 - Exzentrische Überladung bei Beinpresse: schwerer im negativen Phasen
+- **Nächstes Ziel:** Beinpresse 250kg exzentrisch
