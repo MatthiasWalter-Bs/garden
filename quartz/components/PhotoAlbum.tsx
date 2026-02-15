@@ -3,21 +3,29 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import script from "./scripts/photoAlbum.inline"
 import style from "./styles/photoAlbum.scss"
 
-const PhotoAlbum: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
-  const shareUrl = fileData.frontmatter?.onedrive_album as string | undefined
-
-  if (!shareUrl) {
-    return null
-  }
-
-  return (
-    <div id="photo-album" data-share-url={shareUrl}>
-      <div class="photo-album-loading">Loading album...</div>
-    </div>
-  )
+interface Options {
+  baseUrl: string
 }
 
-PhotoAlbum.css = style
-PhotoAlbum.afterDOMLoaded = script
+export default ((opts?: Partial<Options>) => {
+  const baseUrl = opts?.baseUrl ?? ""
 
-export default (() => PhotoAlbum) satisfies QuartzComponentConstructor
+  const PhotoAlbum: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
+    const album = fileData.frontmatter?.photo_album as string | undefined
+
+    if (!album || !baseUrl) {
+      return null
+    }
+
+    return (
+      <div id="photo-album" data-base-url={baseUrl} data-album={album}>
+        <div class="photo-album-loading">Loading album...</div>
+      </div>
+    )
+  }
+
+  PhotoAlbum.css = style
+  PhotoAlbum.afterDOMLoaded = script
+
+  return PhotoAlbum
+}) satisfies QuartzComponentConstructor<Partial<Options>>

@@ -1,12 +1,8 @@
 interface AlbumImage {
   name: string
-  url: string
-  width: number
-  height: number
-  thumbnailUrl: string
 }
 
-function renderGrid(container: HTMLElement, images: AlbumImage[]) {
+function renderGrid(container: HTMLElement, images: AlbumImage[], baseUrl: string, album: string) {
   container.innerHTML = ""
 
   const grid = document.createElement("div")
@@ -19,7 +15,7 @@ function renderGrid(container: HTMLElement, images: AlbumImage[]) {
     item.setAttribute("aria-label", `View ${img.name}`)
 
     const imgEl = document.createElement("img")
-    imgEl.src = img.thumbnailUrl
+    imgEl.src = `${baseUrl}/${album}/${img.name}`
     imgEl.alt = img.name
     imgEl.loading = "lazy"
 
@@ -30,7 +26,12 @@ function renderGrid(container: HTMLElement, images: AlbumImage[]) {
   container.appendChild(grid)
 }
 
-function openLightbox(images: AlbumImage[], startIndex: number): () => void {
+function openLightbox(
+  images: AlbumImage[],
+  startIndex: number,
+  baseUrl: string,
+  album: string,
+): () => void {
   let current = startIndex
 
   const overlay = document.createElement("div")
@@ -66,7 +67,7 @@ function openLightbox(images: AlbumImage[], startIndex: number): () => void {
 
   function show(index: number) {
     current = index
-    imgEl.src = images[current].url
+    imgEl.src = `${baseUrl}/${album}/${images[current].name}`
     imgEl.alt = images[current].name
     counter.textContent = `${current + 1} / ${images.length}`
     prevBtn.style.display = images.length > 1 ? "" : "none"
@@ -95,7 +96,6 @@ function openLightbox(images: AlbumImage[], startIndex: number): () => void {
     if (e.target === overlay) close()
   }
 
-  // Touch swipe support
   let touchStartX = 0
   function onTouchStart(e: TouchEvent) {
     touchStartX = e.touches[0].clientX
@@ -116,7 +116,6 @@ function openLightbox(images: AlbumImage[], startIndex: number): () => void {
   overlay.addEventListener("touchend", onTouchEnd)
   document.addEventListener("keydown", onKey)
 
-  // Force reflow then add visible class for animation
   void overlay.offsetWidth
   overlay.classList.add("photo-album-lightbox-visible")
 
@@ -132,14 +131,15 @@ document.addEventListener("nav", () => {
   const container = document.getElementById("photo-album")
   if (!container) return
 
-  const shareUrl = container.dataset.shareUrl
-  if (!shareUrl) return
+  const baseUrl = container.dataset.baseUrl
+  const album = container.dataset.album
+  if (!baseUrl || !album) return
 
   let cleanupLightbox: (() => void) | null = null
 
-  fetch(`/api/album?share=${encodeURIComponent(shareUrl)}`)
+  fetch(`${baseUrl}/${album}/manifest.json`)
     .then((res) => {
-      if (!res.ok) throw new Error(`API returned ${res.status}`)
+      if (!res.ok) throw new Error(`Failed to load manifest: ${res.status}`)
       return res.json()
     })
     .then((data: { images: AlbumImage[] }) => {
@@ -148,7 +148,7 @@ document.addEventListener("nav", () => {
         return
       }
 
-      renderGrid(container, data.images)
+      renderGrid(container, data.images, baseUrl, album)
 
       const grid = container.querySelector(".photo-album-grid")
       if (grid) {
@@ -156,7 +156,7 @@ document.addEventListener("nav", () => {
           const item = (e.target as HTMLElement).closest(".photo-album-item") as HTMLElement | null
           if (!item) return
           const index = parseInt(item.dataset.index || "0", 10)
-          cleanupLightbox = openLightbox(data.images, index)
+          cleanupLightbox = openLightbox(data.images, index, baseUrl, album)
         })
       }
     })

@@ -5,7 +5,10 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [Component.PasswordGate(), Component.PhotoAlbum()],
+  afterBody: [
+    Component.PasswordGate(),
+    Component.PhotoAlbum({ baseUrl: "https://pub-42642fdb451a4560b79279afba9bb30e.r2.dev" }),
+  ],
   footer: Component.Footer({
     links: {},
   }),
