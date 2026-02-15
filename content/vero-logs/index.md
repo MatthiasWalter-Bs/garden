@@ -1,3 +1,7 @@
+---
+password: vero
+---
+
 # Vero Gesundheits-Log
 
 ## 13. Februar 2026
