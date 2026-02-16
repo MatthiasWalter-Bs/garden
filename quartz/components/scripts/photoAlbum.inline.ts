@@ -138,14 +138,14 @@ document.addEventListener("nav", () => {
 
   let cleanupLightbox: (() => void) | null = null
 
-  fetch(`${immichUrl}/api/shared-links/me?key=${key}`)
+  fetch(`/immich-api/shared-links/me?key=${key}`)
     .then((res) => {
       if (!res.ok) throw new Error(`Failed to load shared link: ${res.status}`)
       return res.json()
     })
     .then((link: { album?: { id: string }; assets: ImmichAsset[] }) => {
       if (link.album) {
-        return fetch(`${immichUrl}/api/albums/${link.album.id}?key=${key}`)
+        return fetch(`/immich-api/albums/${link.album.id}?key=${key}`)
           .then((res) => {
             if (!res.ok) throw new Error(`Failed to load album: ${res.status}`)
             return res.json()
