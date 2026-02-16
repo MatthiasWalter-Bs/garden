@@ -1,3 +1,8 @@
+---
+protected: true
+password-hash: 5cca655ac072f27f6dc6a48c54a499e5f4ccd8d3eee65708bc557ceb3d6202f2
+---
+
 # Fitness Log - Matthias (MASTER)
 
 ## Übersicht
