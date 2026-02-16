@@ -1,22 +1,23 @@
-interface AlbumImage {
-  name: string
+interface ImmichAsset {
+  id: string
+  originalFileName: string
 }
 
-function renderGrid(container: HTMLElement, images: AlbumImage[], baseUrl: string, album: string) {
+function renderGrid(container: HTMLElement, assets: ImmichAsset[], immichUrl: string, key: string) {
   container.innerHTML = ""
 
   const grid = document.createElement("div")
   grid.className = "photo-album-grid"
 
-  images.forEach((img, index) => {
+  assets.forEach((asset, index) => {
     const item = document.createElement("button")
     item.className = "photo-album-item"
     item.dataset.index = String(index)
-    item.setAttribute("aria-label", `View ${img.name}`)
+    item.setAttribute("aria-label", `View ${asset.originalFileName}`)
 
     const imgEl = document.createElement("img")
-    imgEl.src = `${baseUrl}/${album}/${img.name}`
-    imgEl.alt = img.name
+    imgEl.src = `${immichUrl}/api/assets/${asset.id}/thumbnail?size=preview&key=${key}`
+    imgEl.alt = asset.originalFileName
     imgEl.loading = "lazy"
 
     item.appendChild(imgEl)
@@ -27,10 +28,10 @@ function renderGrid(container: HTMLElement, images: AlbumImage[], baseUrl: strin
 }
 
 function openLightbox(
-  images: AlbumImage[],
+  assets: ImmichAsset[],
   startIndex: number,
-  baseUrl: string,
-  album: string,
+  immichUrl: string,
+  key: string,
 ): () => void {
   let current = startIndex
 
@@ -67,19 +68,19 @@ function openLightbox(
 
   function show(index: number) {
     current = index
-    imgEl.src = `${baseUrl}/${album}/${images[current].name}`
-    imgEl.alt = images[current].name
-    counter.textContent = `${current + 1} / ${images.length}`
-    prevBtn.style.display = images.length > 1 ? "" : "none"
-    nextBtn.style.display = images.length > 1 ? "" : "none"
+    imgEl.src = `${immichUrl}/api/assets/${assets[current].id}/original?key=${key}`
+    imgEl.alt = assets[current].originalFileName
+    counter.textContent = `${current + 1} / ${assets.length}`
+    prevBtn.style.display = assets.length > 1 ? "" : "none"
+    nextBtn.style.display = assets.length > 1 ? "" : "none"
   }
 
   function prev() {
-    show((current - 1 + images.length) % images.length)
+    show((current - 1 + assets.length) % assets.length)
   }
 
   function next() {
-    show((current + 1) % images.length)
+    show((current + 1) % assets.length)
   }
 
   function close() {
@@ -131,24 +132,24 @@ document.addEventListener("nav", () => {
   const container = document.getElementById("photo-album")
   if (!container) return
 
-  const baseUrl = container.dataset.baseUrl
-  const album = container.dataset.album
-  if (!baseUrl || !album) return
+  const immichUrl = container.dataset.immichUrl
+  const key = container.dataset.immichKey
+  if (!immichUrl || !key) return
 
   let cleanupLightbox: (() => void) | null = null
 
-  fetch(`${baseUrl}/${album}/manifest.json`)
+  fetch(`${immichUrl}/api/shared-links/me?key=${key}`)
     .then((res) => {
-      if (!res.ok) throw new Error(`Failed to load manifest: ${res.status}`)
+      if (!res.ok) throw new Error(`Failed to load shared link: ${res.status}`)
       return res.json()
     })
-    .then((data: { images: AlbumImage[] }) => {
-      if (!data.images || data.images.length === 0) {
+    .then((data: { assets: ImmichAsset[] }) => {
+      if (!data.assets || data.assets.length === 0) {
         container.innerHTML = '<div class="photo-album-empty">No photos found.</div>'
         return
       }
 
-      renderGrid(container, data.images, baseUrl, album)
+      renderGrid(container, data.assets, immichUrl, key)
 
       const grid = container.querySelector(".photo-album-grid")
       if (grid) {
@@ -156,7 +157,7 @@ document.addEventListener("nav", () => {
           const item = (e.target as HTMLElement).closest(".photo-album-item") as HTMLElement | null
           if (!item) return
           const index = parseInt(item.dataset.index || "0", 10)
-          cleanupLightbox = openLightbox(data.images, index, baseUrl, album)
+          cleanupLightbox = openLightbox(data.assets, index, immichUrl, key)
         })
       }
     })

@@ -4,21 +4,21 @@ import script from "./scripts/photoAlbum.inline"
 import style from "./styles/photoAlbum.scss"
 
 interface Options {
-  baseUrl: string
+  immichUrl: string
 }
 
 export default ((opts?: Partial<Options>) => {
-  const baseUrl = opts?.baseUrl ?? ""
+  const immichUrl = opts?.immichUrl ?? ""
 
   const PhotoAlbum: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
-    const album = fileData.frontmatter?.photo_album as string | undefined
+    const immichKey = fileData.frontmatter?.immich_key as string | undefined
 
-    if (!album || !baseUrl) {
+    if (!immichKey || !immichUrl) {
       return null
     }
 
     return (
-      <div id="photo-album" data-base-url={baseUrl} data-album={album}>
+      <div id="photo-album" data-immich-url={immichUrl} data-immich-key={immichKey}>
         <div class="photo-album-loading">Loading album...</div>
       </div>
     )
