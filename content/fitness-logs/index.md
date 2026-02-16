@@ -6,6 +6,22 @@ Tracking von Workouts, Gewichten und Fortschritten.
 
 ---
 
+## 15. Februar 2026 (Samstag) 💪
+
+*Selbes Schema wie Session vom 08.02.2026*
+
+| Übung | Sets × Reps | Gewicht | Notizen |
+|-------|-------------|---------|---------|
+| Beinpresse (exz.) | 4×9 | 180/230kg | exzentrisch überladen |
+| Rückenzug (Gym80) | 4×9 | 67.5kg | |
+| Face Pulls | 4×8 | 15kg | Kabelzug |
+| Kabelrudern | 4×9 | 50kg | V-Griff |
+| Langhantel-Curls | 4×8 | 20kg | |
+| Overhead Trizeps | 4×8 | 20kg | |
+| Crunches | 3×20 | BW | |
+
+---
+
 ## 8. Februar 2026 (Samstag) 💪
 
 *Selbes Schema wie Session vom 27.01.2026*
