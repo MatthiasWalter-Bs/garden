@@ -1,7 +1,3 @@
----
-password: vero
----
-
 # Fitness Log - Matthias (MASTER)
 
 ## Übersicht
