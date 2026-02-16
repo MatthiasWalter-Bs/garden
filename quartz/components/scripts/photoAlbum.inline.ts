@@ -143,13 +143,24 @@ document.addEventListener("nav", () => {
       if (!res.ok) throw new Error(`Failed to load shared link: ${res.status}`)
       return res.json()
     })
-    .then((data: { assets: ImmichAsset[] }) => {
-      if (!data.assets || data.assets.length === 0) {
+    .then((link: { album?: { id: string }; assets: ImmichAsset[] }) => {
+      if (link.album) {
+        return fetch(`${immichUrl}/api/albums/${link.album.id}?key=${key}`)
+          .then((res) => {
+            if (!res.ok) throw new Error(`Failed to load album: ${res.status}`)
+            return res.json()
+          })
+          .then((album: { assets: ImmichAsset[] }) => album.assets)
+      }
+      return link.assets
+    })
+    .then((assets: ImmichAsset[]) => {
+      if (!assets || assets.length === 0) {
         container.innerHTML = '<div class="photo-album-empty">No photos found.</div>'
         return
       }
 
-      renderGrid(container, data.assets, immichUrl, key)
+      renderGrid(container, assets, immichUrl, key)
 
       const grid = container.querySelector(".photo-album-grid")
       if (grid) {
@@ -157,7 +168,7 @@ document.addEventListener("nav", () => {
           const item = (e.target as HTMLElement).closest(".photo-album-item") as HTMLElement | null
           if (!item) return
           const index = parseInt(item.dataset.index || "0", 10)
-          cleanupLightbox = openLightbox(data.assets, index, immichUrl, key)
+          cleanupLightbox = openLightbox(assets, index, immichUrl, key)
         })
       }
     })
