@@ -1,3 +1,8 @@
+---
+title: Vero Gesundheits-Log
+description: Gesundheits-Tracking für Vero (Pferd)
+---
+
 # Vero Gesundheits-Log
 
 ## 16. Februar 2026
