@@ -12,6 +12,7 @@ Daily reports tracking **OpenClaw**, **Steipete**, and the broader AI/open-sourc
 
 | Date | Report |
 |------|--------|
+| 2026-02-23 | [[2026-02-23]] |
 | 2026-02-22 | [[2026-02-22]] |
 | 2026-02-21 | [[2026-02-21]] |
 | 2026-02-20 | [[2026-02-20]] |
@@ -39,6 +40,7 @@ Focused tracking of **Reachy Mini** by Pollen Robotics — community projects, N
 
 | Date | Report |
 |------|--------|
+| 2026-02-23 | [[2026-02-23-reachy]] |
 | 2026-02-22 | [[2026-02-22-reachy]] |
 | 2026-02-21 | [[2026-02-21-reachy]] |
 | 2026-02-20 | [[2026-02-20-reachy]] |
