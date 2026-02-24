@@ -7,10 +7,6 @@ password-hash: 5cca655ac072f27f6dc6a48c54a499e5f4ccd8d3eee65708bc557ceb3d6202f2
 
 # Vero Gesundheits-Log
 
-## 23. Februar 2026
-- **Status:** Gut
-- **Notizen:** Stallbesuch Matthias. Vero geht es gut, keine Probleme mit der Verdauung.
-
 ## 18. Februar 2026
 - **Status:** Gut
 - **Notizen:** Vero geht es gut - er hat Hunger ;-)
