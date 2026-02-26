@@ -7,6 +7,10 @@ password-hash: 5cca655ac072f27f6dc6a48c54a499e5f4ccd8d3eee65708bc557ceb3d6202f2
 
 # Vero Gesundheits-Log
 
+## 26. Februar 2026
+- **Status:** Gut
+- **Notizen:** Geht ihm gut
+
 ## 24. Februar 2026
 - **Status:** Gut
 - **Notizen:** Vero geht es gut - er hat sich im Schlamm hingelegt :-)
@@ -42,3 +46,10 @@ password-hash: 5cca655ac072f27f6dc6a48c54a499e5f4ccd8d3eee65708bc557ceb3d6202f2
 ## 6. Februar 2026
 - **Status:** Gut
 - **Notizen:** Matthias hat bestätigt, dass es Vero heute gut geht.
+
+## 3. Februar 2026
+- **Status:** Gut
+- **Verhalten:** Entspannt beim Fressen, Ohren aufmerksam
+- **Video:** `vero_2026-02-03_futter.mp4` (OneDrive/vero/videos/)
+- **Notizen:** Video zeigt Vero beim Heu-Fressen im Stall. Wirkte ruhig und entspannt.
+- **Beobachter:** Matthias
